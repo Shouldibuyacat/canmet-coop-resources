@@ -1,2 +1,2 @@
 # canmet-coop-resources
-Scripts, documents, and tasks
+A place to store scripts, documents, and completed tasks for other Canmet employees to easily access
