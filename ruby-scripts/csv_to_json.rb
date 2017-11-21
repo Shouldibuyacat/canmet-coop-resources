@@ -1,10 +1,8 @@
 #converts csv to json
 
-#notes you will have to change the paths in order for the script to work on your local system
-#if we saved our files in different directories
-
 require 'csv'
 require 'json'
+
 
 csv_file = "#{File.dirname(__FILE__)}/../btap/FutureUse_Weather-System_Data.csv"
 
@@ -16,8 +14,11 @@ data_json_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../btap/csvToJs
 
 pretty_output = JSON.pretty_generate(data_json_hash)
 
+#this part converts it into the format of the WeatherData1 hash found at
+#https://github.com/NREL/openstudio-standards/blob/nrcan/openstudio-standards/lib/openstudio-standards/weather/Weather.Model.rb
+pretty_output.to_s.gsub!('"','')
+pretty_output.to_s.gsub!(/\\/,'')
+
 File.delete("#{File.dirname(__FILE__)}/../btap/csvToJson.json")
 
 File.write("#{File.dirname(__FILE__)}/../btap/csvToJson.json", pretty_output)
-
-puts pretty_output
