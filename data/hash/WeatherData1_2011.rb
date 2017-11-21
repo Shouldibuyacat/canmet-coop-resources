@@ -1,5 +1,4 @@
-/opt/rubies/ruby-2.2.4/bin/ruby -e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift) /home/osdev/necb_2011/forks/openstudio-standards/openstudio-standards/lib/openstudio-standards/utilities/csvToJson
-[
+ WeatherData1 = [
   {
     file: 'CAN_BC_Abbotsford.711080_CWEC.epw',
     location_name:   ' CAN-BC-Abbotsford',
