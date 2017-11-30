@@ -1,3 +1,5 @@
+#converts the WeatherData1.xlsx spreadsheet into a ruby hash using the rubyXL gem
+
 require 'csv'
 require 'json'
 require 'rubyXL'
@@ -35,7 +37,7 @@ data_json_hash = CSV.open(csv_file, :headers => true).map { |x| x.to_h }.to_json
 File.write("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json",data_json_hash)
 
 data_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json"))
-
+#converting the strings to integers and floats
 data_hash.each do |info|
   info['hdd18'] = info['hdd18'].to_i
   info['hdd15'] = info['hdd15'].to_i
@@ -44,6 +46,7 @@ data_hash.each do |info|
   info['longitude'] = info['longitude'].to_f
   info['elevation'] = info['elevation'].to_i
   info['deltadb'] = info['deltadb'].to_f
+  info['mau_type'] = true
 
 end
 
