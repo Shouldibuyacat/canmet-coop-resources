@@ -29,7 +29,8 @@ CSV.open(csv_file, "wb") do |csv|
   end
 end
 
-rescue; 
+rescue
+  NoMethodError
 end
 
 data_json_hash = CSV.open(csv_file, :headers => true).map { |x| x.to_h }.to_json
@@ -40,7 +41,12 @@ data_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../btap/csvToJsonUpd
 #converting the strings to integers and floats
 data_hash.each do |info|
   info['hdd18'] = info['hdd18'].to_i
-  info['hdd15'] = info['hdd15'].to_i
+  #Some entries for hdd15 are currently empty
+  if info['hdd15'] == ""
+       info['hdd15'] = info['hdd15']
+  else info['hdd15'] = info ['hdd15'].to_i
+  end
+  
   info['cdd18'] = info['cdd18'].to_i
   info['latitude'] = info['latitude'].to_f
   info['longitude'] = info['longitude'].to_f
