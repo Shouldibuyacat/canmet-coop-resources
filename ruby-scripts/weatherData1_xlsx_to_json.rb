@@ -4,6 +4,13 @@ require 'csv'
 require 'json'
 require 'rubyXL'
 
+#use this to convert empty strings to nil
+class String
+  def nillify
+    self.empty? ? nil : self
+  end
+end
+
 begin
 
 csv_file = "#{File.dirname(__FILE__)}/../btap/csvFile1.csv"
@@ -43,7 +50,7 @@ data_hash.each do |info|
   info['hdd18'] = info['hdd18'].to_i
   #Some entries for hdd15 are currently empty
   if info['hdd15'] == ""
-       info['hdd15'] = info['hdd15']
+       info['hdd15'] = info['hdd15'].nillify
   else info['hdd15'] = info ['hdd15'].to_i
   end
   
