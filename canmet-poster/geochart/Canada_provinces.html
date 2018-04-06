@@ -1,0 +1,30 @@
+    <!--
+      Google geochart of Germany at provinces resolution
+      https://stamm-wilbrandt.de/en/github/Germany.html
+      https://google-developers.appspot.com/chart/interactive/docs/gallery/geochart
+    -->
+    <html>
+      <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+        <script type='text/javascript'>
+          google.load('visualization', '1', {'packages': ['geochart']});
+          google.setOnLoadCallback(drawMap);
+    
+          function drawMap() {
+            var data = google.visualization.arrayToDataTable([
+              ['State', 'Population', 'Area(km²)'],
+              ['CA-QC', 10569100, 35752]
+        
+            ]);
+     
+            var geochart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+    
+            geochart.draw(data, {width: 1024, height: 640, region: "CA", resolution: "provinces"});
+          };
+        </script>
+      </head>
+      <body>
+        <div id="chart_div"></div>
+      </body>
+    </html>

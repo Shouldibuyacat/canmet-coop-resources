@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>          
+     google.charts.load('current', {
+       'packages': ['geochart'],
+       // Note: you will need to get a mapsApiKey for your project.
+       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+     });
+     google.charts.setOnLoadCallback(drawMarkersMap);
+
+      //BTAP 2016 Weather Data Locations Map
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['City'],
+        ['Banff, AB'],
+        ['Edmonton, AB'],
+        ['Fort McMurray, AB'],
+        ['Calgary, AB'],
+        ['Stony Plain, AB'],
+        ['Grande Prairie, AB'],
+        ['Lethbridge, AB'],
+        ['Medicine Hat, AB'],
+        ['Abbotsford, BC'],
+        ['Comox Valley, BC'],
+        ['Crankbrook-Canadian Rockies, BC'],
+        ['Fort.St.John-North Peace, BC'],
+        ['Hope, BC'],
+        ['Kamloops, BC'],
+        ['Port Hardy, BC'],
+        ['Prince George, BC'],
+        ['Smithers, BC'],
+        ['Summerland, BC'],
+        ['Victoria, BC'],
+        ['Vancouver, BC'],
+        ['Brandon Muni, MB'],
+        ['The Pas, MB'],
+        ['Winnipeg-Richardson, MB'],
+        ['Fredericton, NB'],
+        ['Miramichi, NB'],
+        ['Saint John, NB'],
+        ['Gander, NL'],
+        ['Goose Bay, NL'],
+        ['St. Johns, NL'],
+        ['Stephenville, NL'],
+        ['Greenwood, NS'],
+        ['Shearwater, NS'],
+        ['Sable Island, NS'],
+        ['Inuvik-Zubko, NT'],
+        ['Yellowknife, NT'],
+        ['Armstrong, ON'],
+        ['Trenton, ON'],
+        ['Dryden, ON'],
+        ['London, ON'],
+        ['Moosonee, ON'],
+        ['Mount Forest, ON'],
+        ['North Bay-Garland, ON'],
+        ['Ottawa, ON'],
+        ['Sault Ste. Marie, ON'],
+        ['Timmins, ON'],
+        ['Toronto, ON'],
+        ['Windsor, ON'],
+        ['Charlottetown, PE'],
+        ['Kuujjuaq, QC'],
+        ['Kuujuarapik, QC'],
+        ['Lac Eon, QC'],
+        ['Mont-Joli, QC'],
+        ['Montreal-Mirabel, QC'],
+        ['Montreal, QC'],
+        ['Montreal-St-Hubert Longueuil, QC'],
+        ['Quebec City Jean-Lesage, QC'],
+        ['Riviere-du-Loup, QC'],
+        ['Roberval, QC'],
+        ['Saguenay-Bagotville, QC'],
+        ['Schefferville, QC'],
+        ['Sept-Iles, QC'],
+        ['Val-d-Or, QC'],
+        ['Estevan, SK'],
+        ['North Battleford, SK'],
+        ['Saskatoon, SK'],
+        ['Whitehorse, YT'],
+
+
+      ]);
+
+      var options = {
+        region: 'CA',
+        displayMode: 'markers',
+        markerOpacity: 0.9,
+        colorAxis: {colors: ['green', 'blue']},
+        backgroundColor: '#8db5da',
+        //backgroundColor: '#ffffff',
+        datalessRegionColor: '#9cd24b',
+        defaultColor: '#ffffff',
+        resolution: "provinces"
+       
+      };
+
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+
+    };
+
+  
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1800px; height: 1000px;"></div>
+  </body>
+</html>
